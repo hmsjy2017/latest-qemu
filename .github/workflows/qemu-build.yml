@@ -1,4 +1,4 @@
-name: Build qemu-system-aarch64
+name: Build qemu-system-loongarch64
 'on':
   schedule:
     - cron: 0 0 * * *
@@ -48,7 +48,7 @@ jobs:
         run: |
           mkdir $GITHUB_WORKSPACE/output && \
           ./configure \
-          --target-list=aarch64-softmmu \
+          --target-list=loongarch64-softmmu \
           --enable-slirp \
           --without-default-features \
           --disable-docs \
@@ -74,4 +74,4 @@ jobs:
           body: 'Full Changelog: ${{ env.changelog-url }}'
           fail_on_unmatched_files: 'true'
           files: |
-            output/bin/qemu-system-aarch64
+            output/bin/qemu-system-loongarch64
